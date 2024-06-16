@@ -31,6 +31,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(projects.shared)
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
         }
     }
 }
