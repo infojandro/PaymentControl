@@ -30,6 +30,9 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.sqldelight.runtime)
         }
+        androidMain.dependencies {
+            implementation(libs.sqldelight.runtime)
+        }
 
     }
 }
@@ -41,14 +44,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
 }
 
 sqldelight {
-    database("Database") {
-        packageName = "com.example"
-        // Puedes agregar más configuraciones aquí, si es necesario
+    database("MyDatabase") {
+        packageName = "com.example.database" // Este debe ser el paquete correcto
+        sourceFolders = listOf("sqldelight")
     }
 }
