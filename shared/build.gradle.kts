@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -26,15 +25,6 @@ kotlin {
         }
     }
 
-    sourceSets {
-        commonMain.dependencies {
-            implementation(libs.sqldelight.runtime)
-        }
-        androidMain.dependencies {
-            implementation(libs.sqldelight.runtime)
-        }
-
-    }
 }
 
 android {
@@ -43,12 +33,5 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-sqldelight {
-    database("MyDatabase") {
-        packageName = "com.example.database" // Este debe ser el paquete correcto
-        sourceFolders = listOf("sqldelight")
     }
 }

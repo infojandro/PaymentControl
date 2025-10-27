@@ -1,0 +1,36 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PaymentControl.ViewModels"
+             x:Class="PaymentControl.Views.DuesPage"
+             Title="Cuotas">
+
+    <StackLayout Padding="20" Spacing="10">
+        <CollectionView x:Name="DuesCollectionView"
+                        ItemsSource="{Binding Cuotas}"
+                        SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" Padding="10" CornerRadius="8" HasShadow="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="{Binding UsuarioNombre}" FontSize="18" />
+                                <Label Text="{Binding Importe, StringFormat='Importe: {0:C}'}" FontSize="14" TextColor="Gray"/>
+                                <Label Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy}'}" FontSize="14" TextColor="Gray"/>
+                            </StackLayout>
+
+                            <Button Grid.Column="1" Text="Eliminar"
+                                    Command="{Binding DeleteDueCommand}"
+                                    CommandParameter="{Binding .}"
+                                    TextColor="Red"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

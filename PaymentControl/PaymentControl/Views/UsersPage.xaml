@@ -1,0 +1,61 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PaymentControl.ViewModels"
+             xmlns:local="clr-namespace:PaymentControl.Converters"
+             x:Class="PaymentControl.Views.UsersPage"
+             Title="Usuarios">
+
+    <ContentPage.Resources>
+        <!-- Converter para mostrar el botón solo si PagoMesActual es null -->
+        <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20" Spacing="10">
+
+        <!-- Botón para agregar un nuevo usuario -->
+        <Button Text="Anadir Usuario" 
+                Command="{Binding AddUserCommand}" />
+
+        <CollectionView x:Name="UsuariosCollectionView"
+                        ItemsSource="{Binding Usuarios}"
+                        SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" Padding="10" CornerRadius="8" HasShadow="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Datos del usuario -->
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="{Binding Nombre}" FontSize="18" />
+                                <Label Text="{Binding Alias}" FontSize="14" TextColor="Gray" />
+                            </StackLayout>
+
+                            <!-- Botón editar -->
+                            <Button Grid.Column="1" Text="Editar" 
+                                    Command="{Binding BindingContext.EditUserCommand, Source={x:Reference UsuariosCollectionView}}" 
+                                    CommandParameter="{Binding .}" />
+
+                            <!-- Botón eliminar -->
+                            <Button Grid.Column="2" Text="Eliminar" 
+                                    Command="{Binding BindingContext.DeleteUserCommand, Source={x:Reference UsuariosCollectionView}}" 
+                                    CommandParameter="{Binding .}" 
+                                    TextColor="Red"/>
+
+                            <!-- Botón de pago automático solo si no hay pago este mes -->
+                            <Button Grid.Column="3" Text="Generar Pago" 
+                                    Command="{Binding BindingContext.AutoPayCommand, Source={x:Reference UsuariosCollectionView}}"
+                                    CommandParameter="{Binding .}"
+                                    IsVisible="{Binding PagoMesActual, Converter={StaticResource NullToBoolConverter}}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
