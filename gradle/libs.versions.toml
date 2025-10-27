@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0"
+agp = "8.6.0"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
@@ -28,9 +28,9 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
-sqldelight-runtime = { module = "com.squareup.sqldelight:runtime", version = "1.5.5" }
-sqldelight-android-driver = { module = "com.squareup.sqldelight:android-driver", version = "1.5.5" }
-sqldelight-native-driver = { module = "com.squareup.sqldelight:native-driver", version = "1.5.5" }
+sqldelight-runtime = { module = "com.squareup.sqldelight:runtime", version = "2.0.2" }
+sqldelight-android-driver = { module = "com.squareup.sqldelight:android-driver", version = "2.0.2" }
+sqldelight-native-driver = { module = "com.squareup.sqldelight:native-driver", version = "2.0.2" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }

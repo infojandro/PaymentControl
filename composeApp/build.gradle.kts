@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    id("app.cash.sqldelight") version "2.0.0"
 }
 
 kotlin {
@@ -45,7 +46,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "org.example.project"
+        applicationId = "com.example.project"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -70,6 +71,7 @@ android {
     }
     dependencies {
         debugImplementation(compose.uiTooling)
+
     }
 }
 dependencies {
@@ -78,3 +80,9 @@ dependencies {
     implementation(libs.androidx.runtime.livedata)
 }
 
+sqldelight {
+    database("MyDatabase") {
+        packageName = "com.example.database" // Este debe ser el paquete correcto
+        sourceFolders = listOf("sqldelight")
+    }
+}

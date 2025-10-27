@@ -16,3 +16,58 @@ captures
 !*.xcodeproj/project.xcworkspace/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+# Build Folders
+bin/
+obj/
+Debug/
+Release/
+publish/
+
+# VS and Rider folders
+.vs/
+.idea/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+*.iml
+*.ipr
+*.iws
+
+# Mono Auto Generated Files
+*.pidb
+*.booproj
+*.svd
+
+# Mac
+.DS_Store
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# SQLite database (si no quieres subir la base de datos)
+*.db
+*.db3
+
+# Logs
+*.log
+
+# Generated files
+*.dll
+*.pdb
+*.cache
+*.apk
+*.aab
+*.app
+*.xcuserstate
+
+# Xamarin specific
+*.xaml.g.cs
+*.designer.cs

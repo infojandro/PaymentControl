@@ -1,3 +1,4 @@
+/*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.shared.ClientsHelper
@@ -11,3 +12,4 @@ class ClientViewModelFactory(private val clientsHelper: ClientsHelper) : ViewMod
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 import android.content.Context
 import com.example.database.MyDatabase
 import com.squareup.sqldelight.android.AndroidSqlDriver
@@ -8,3 +9,4 @@ class DatabaseDriverFactory(private val context: Context) {
         return AndroidSqlDriver(MyDatabase.Schema, context, "mydatabase.db")
     }
 }
+*/

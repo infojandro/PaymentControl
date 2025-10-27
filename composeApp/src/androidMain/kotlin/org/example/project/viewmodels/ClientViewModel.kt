@@ -1,6 +1,9 @@
+
+/*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.database.ClientsHelper
 import com.example.shared.ClientsHelper
 import com.example.shared.Client
 
@@ -35,3 +38,5 @@ class ClientViewModel(private val clientsHelper: ClientsHelper) : ViewModel() {
         loadAllClients()
     }
 }
+
+ */
